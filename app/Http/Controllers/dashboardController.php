@@ -26,6 +26,6 @@ class dashboardController extends Controller
             'lembaga' => $allLembaga,
             'santri' => $allSantri,
             'guru' => $allGuru,
-        ]);
+        ], 200);
     }
 }

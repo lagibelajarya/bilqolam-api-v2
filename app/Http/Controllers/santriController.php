@@ -38,6 +38,15 @@ class santriController extends Controller
             'message' => 'Berhasil Menambahkan Santri'
         ]);
     }
+
+    public function showSantri($id)
+    {
+        $santri = santriModel::find($id);
+        return response()->json([
+            'status' => true,
+            'data' => $santri
+        ]);
+    }
     public function updateSantri(Request $request, $id)
     {
 

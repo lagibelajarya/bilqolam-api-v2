@@ -52,6 +52,14 @@ class lembagaController extends Controller
             'message' => 'Beerhasil Membuat Lembaga'
         ]);
     }
+    public function showLembaga($id)
+    {
+        $lembaga = lembagaModel::find($id);
+        return response()->json([
+            'status' => true,
+            'data' => new lembagaResource($lembaga)
+        ]);
+    }
 
     public function updateLembaga(Request $request, $id)
     {

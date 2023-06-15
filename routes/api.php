@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\authController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\guruController;
@@ -27,6 +28,9 @@ Route::middleware('auth:api')->group(function () {
     // lembaga 
     Route::get('/get-lembaga', [lembagaController::class, 'index']);
     Route::post('/create-lembaga', [lembagaController::class, 'createLembaga']);
+    Route::post('/show-lembaga/{id}', [lembagaController::class, 'showLembaga']);
+    Route::post('/update-lembaga/{id}', [lembagaController::class, 'updateLembaga']);
+    Route::delete('/delete-lembaga/{id}', [lembagaController::class, 'deleteLembaga']);
     //select wilayah 
     Route::post('/logout', [authController::class, 'logout']);
 
@@ -35,11 +39,15 @@ Route::middleware('auth:api')->group(function () {
     // guru
     Route::get('/get-guru', [guruController::class, 'index']);
     Route::post('/create-guru', [guruController::class, 'createGuru']);
+    Route::post('/show-guru/{id}', [guruController::class, 'showGuru']);
     Route::post('/update-guru', [guruController::class, 'updateGuru']);
+    Route::delete('/delete-guru/{id}', [guruController::class, 'deleteGuru']);
     // santri
     Route::get('/get-santri', [santriController::class, 'index']);
+    Route::post('/show-santri/{id}', [santriController::class, 'showSantri']);
     Route::post('/create-santri', [santriController::class, 'createSantri']);
     Route::post('/update-santri', [santriController::class, 'updateSantri']);
+    Route::delete('/delete-santri/{id}', [santriController::class, 'deleteSantri']);
 
     // laporan
     Route::get('lembaga-provinsi/{keyWilayah}', [laporanController::class, 'getLembagaProv']);

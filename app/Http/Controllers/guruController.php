@@ -43,6 +43,15 @@ class guruController extends Controller
         ]);
     }
 
+    public function showGuru($id)
+    {
+        $guru = guruModel::find($id);
+        return response()->json([
+            'status' => true,
+            'data' => $guru
+        ]);
+    }
+
 
     public function updateGuru(Request $request, $id)
     {
